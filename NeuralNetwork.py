@@ -33,3 +33,6 @@ class PolicyNetwork():
         self.weights4 = tf.Variable(tf.random_normal([self.neurons[2], self.n_actions], stddev = tf.sqrt(2/(self.neurons[2] + self.n_actions))))
         self.bias4 = tf.Variable(tf.zeros([1,self.n_actions]) + 0.01)
         self.policy = tf.nn.softmax(tf.matmul(self.layer3, self.weights4) + self.bias4)
+
+    def trainNetwork(self):
+        pass # This is just a test
