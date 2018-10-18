@@ -174,12 +174,16 @@ def genetic_algorithm(run_competition_function, neural_network_shell, num_genera
                       neurons, *args, **kwargs):
     # This array will keep track of the best scores for each generation
     best_scores = np.zeros(num_generations)
-
+    
+    # These are just toggles for now, but when you put actual data, you will replace these
+    n_features = 10
+    n_actions = 3
+    
     # The specific example I'm showing below is for a reinforcement learning agent that is a parameterized neural network
     # We are using a genetic algorithm to learn the weights of the neural network - continuous variable optimization
     tf.reset_default_graph()
     sess = tf.Session()
-    agent = neural_network_shell(sess, neurons, population_size)
+    agent = neural_network_shell(sess, n_features, n_actions, neurons, population_size)
     sess.run(tf.global_variables_initializer())
     
     for gen in range(num_generations):
